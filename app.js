@@ -11,16 +11,12 @@
   const furiganaToggle = document.querySelector('#furigana-toggle');
   const furiganaState = document.querySelector('#furigana-state');
   const tenseButtons = [...document.querySelectorAll('.tense-btn')];
-  const scenarioButtons = [...document.querySelectorAll('.scenario-btn')];
-  const patternButtons = [...document.querySelectorAll('.pattern-btn')];
   const mobileSlideTrigger = document.querySelector('#mobile-slide-trigger');
   const mobileSlideLabel = document.querySelector('#mobile-slide-label');
   const slideNav = document.querySelector('#slide-nav-list');
   const mobile = window.matchMedia('(max-width: 900px)');
 
   let currentSlide = 0;
-  let currentScenario = 'shop';
-  let currentPattern = 'nodeshita';
   let transitionTimer;
   let toastTimer;
 
@@ -48,67 +44,6 @@
       n1: ['休日', '休日だった', '休日だったのでした'],
       n2: ['静か', '静かだった', '静かだったのでした'],
       n3: ['雨', '雨じゃなかった', '雨じゃなかったのでした']
-    }
-  };
-
-  const SCENARIOS = {
-    shop: {
-      context: 'Kamu datang ke toko kue, lalu melihat papan jadwal tutup di kaca.',
-      patterns: {
-        nodeshita: {
-          badge: 'Realisasi / Kesadaran Baru',
-          jp: 'この<ruby>店<rt>みせ</rt></ruby>は、<ruby>毎<rt>まい</rt></ruby><ruby>週<rt>しゅう</rt></ruby><ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>が<ruby>定<rt>てい</rt></ruby><ruby>休<rt>きゅう</rt></ruby><ruby>日<rt>び</rt></ruby><mark>なのでした</mark>。',
-          id: '“Oh, ternyata toko ini memang libur tetap setiap hari Rabu.”',
-          why: 'Mengungkapkan momen penutur baru menyadari atau mengingat fakta tersebut. Nadanya reflektif dan tidak kaku seperti analisis sebab-akibat.'
-        },
-        nodesu: {
-          badge: 'Penjelasan Aktif Kini',
-          jp: 'すみません、<ruby>今日<rt>きょう</rt></ruby>は<ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>なので<ruby>休<rt>やす</rt></ruby>み<mark>なのです</mark>。',
-          id: '“Maaf, karena hari ini hari Rabu, toko sedang libur.”',
-          why: 'Dipakai staf untuk memberi tahu alasan kondisi saat ini secara langsung kepada pelanggan yang datang, bukan monolog penemuan diri sendiri.'
-        },
-        karadatta: {
-          badge: 'Sebab Langsung Objektif',
-          jp: '<ruby>店<rt>みせ</rt></ruby>が<ruby>閉<rt>し</rt></ruby>まっていたのは、<ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>が<ruby>定<rt>てい</rt></ruby><ruby>休<rt>きゅう</rt></ruby><ruby>日<rt>び</rt></ruby>だ<mark>からだった</mark>。',
-          id: '“Alasan toko itu tutup adalah karena hari Rabu merupakan hari libur tetap.”',
-          why: 'Menunjuk sebab fisik/aturan secara langsung dan analitis. Fokusnya menjawab pertanyaan “kenapa tutup?”, tanpa kesan baru sadar.'
-        },
-        wakedatta: {
-          badge: 'Kesimpulan Logis',
-          jp: '<ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みだから、<ruby>開<rt>あ</rt></ruby>いていない<mark>わけだった</mark>。',
-          id: '“Karena hari Rabu libur, wajar saja kalau tokonya tidak buka.”',
-          why: 'Menarik simpulan yang masuk akal dari dua fakta (Rabu libur + pintu terkunci). Menekankan logika “pantas saja”, bukan sekadar penuturan cerita.'
-        }
-      }
-    },
-    tanaka: {
-      context: 'Kemarin Tanaka tiba-tiba bergegas pulang sebelum jam kerja selesai.',
-      patterns: {
-        nodeshita: {
-          badge: 'Latar Belakang & Realisasi',
-          jp: '<ruby>田<rt>た</rt></ruby><ruby>中<rt>なか</rt></ruby>さんが<ruby>急<rt>いそ</rt></ruby>いで<ruby>帰<rt>かえ</rt></ruby>ったのは、<ruby>家<rt>か</rt></ruby><ruby>族<rt>ぞく</rt></ruby>の<ruby>誕<rt>たん</rt></ruby><ruby>生<rt>じょう</rt></ruby><ruby>日<rt>び</rt></ruby>だっ<mark>たのでした</mark>。',
-          id: '“Ternyata alasan Tanaka buru-buru pulang kemarin adalah ulang tahun keluarganya.”',
-          why: 'Menceritakan kembali atau baru memahami latar belakang tindakan Tanaka dengan nuansa hangat dan reflektif.'
-        },
-        nodesu: {
-          badge: 'Penjelasan Aktif Kini',
-          jp: '<ruby>実<rt>じつ</rt></ruby>は、<ruby>今日<rt>きょう</rt></ruby>は<ruby>家<rt>か</rt></ruby><ruby>族<rt>ぞく</rt></ruby>の<ruby>誕<rt>たん</rt></ruby><ruby>生<rt>じょう</rt></ruby><ruby>日<rt>び</rt></ruby><mark>なのです</mark>。それで<ruby>先<rt>さき</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。',
-          id: '“Sebenarnya hari ini ulang tahun keluarga saya. Jadi saya pulang duluan ya.”',
-          why: 'Diucapkan langsung oleh Tanaka pada saat izin pulang sekarang agar rekan kerjanya memahami situasinya saat itu juga.'
-        },
-        karadatta: {
-          badge: 'Sebab Langsung Objektif',
-          jp: '<ruby>彼<rt>かれ</rt></ruby>が<ruby>早<rt>そう</rt></ruby><ruby>退<rt>たい</rt></ruby>したのは、<ruby>家<rt>か</rt></ruby><ruby>族<rt>ぞく</rt></ruby>の<ruby>誕<rt>たん</rt></ruby><ruby>生<rt>じょう</rt></ruby><ruby>日<rt>び</rt></ruby>だっ<mark>たからだった</mark>。',
-          id: '“Ia pulang lebih awal karena hari itu adalah ulang tahun keluarganya.”',
-          why: 'Menyebut penyebab secara lugas dan objektif seperti catatan atau laporan peristiwa, tanpa nuansa penuturan cerita.'
-        },
-        wakedatta: {
-          badge: 'Kesimpulan Logis',
-          jp: '<ruby>家<rt>か</rt></ruby><ruby>族<rt>ぞく</rt></ruby>の<ruby>誕<rt>たん</rt></ruby><ruby>生<rt>じょう</rt></ruby><ruby>日<rt>び</rt></ruby>だから、あんなに<ruby>急<rt>いそ</rt></ruby>いでいた<mark>わけだった</mark>。',
-          id: '“Karena ulang tahun keluarganya, pantas saja ia tampak begitu terburu-buru.”',
-          why: 'Menghubungkan fakta ulang tahun dengan sikap terburu-buru tadi menjadi simpulan logis (“pantas saja begitu”).'
-        }
-      }
     }
   };
 
@@ -205,30 +140,6 @@
     });
   }
 
-  function renderDistinctionLab() {
-    const scenario = SCENARIOS[currentScenario];
-    const entry = scenario?.patterns[currentPattern];
-    if (!scenario || !entry) return;
-
-    document.querySelector('#lab-badge').textContent = entry.badge;
-    document.querySelector('#lab-context').textContent = scenario.context;
-    document.querySelector('#lab-sentence').innerHTML = entry.jp;
-    document.querySelector('#lab-translation').textContent = entry.id;
-    document.querySelector('#lab-why-text').textContent = entry.why;
-
-    scenarioButtons.forEach(btn => {
-      const active = btn.dataset.scenario === currentScenario;
-      btn.classList.toggle('is-active', active);
-      btn.setAttribute('aria-pressed', String(active));
-    });
-
-    patternButtons.forEach(btn => {
-      const active = btn.dataset.pattern === currentPattern;
-      btn.classList.toggle('is-active', active);
-      btn.setAttribute('aria-pressed', String(active));
-    });
-  }
-
   function closeMobileNav({ restoreFocus = false } = {}) {
     if (!slideNav || !mobileSlideTrigger) return;
     const wasOpen = slideNav.classList.contains('is-open');
@@ -295,20 +206,6 @@
 
   tenseButtons.forEach(btn => {
     btn.addEventListener('click', () => applyTense(btn.dataset.tense));
-  });
-
-  scenarioButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentScenario = btn.dataset.scenario;
-      renderDistinctionLab();
-    });
-  });
-
-  patternButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentPattern = btn.dataset.pattern;
-      renderDistinctionLab();
-    });
   });
 
   window.addEventListener('hashchange', () => goToSlide(readHash(), { updateHash: false }));
@@ -387,6 +284,5 @@
 
   fitStage();
   applyTense('present');
-  renderDistinctionLab();
   goToSlide(readHash(), { updateHash: Boolean(location.hash), animate: false });
 })();
