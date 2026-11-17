@@ -799,9 +799,13 @@ h3 {
 }
 
 /* SLIDE 3: RUMUS */
+.formula {
+  padding-top: 40px;
+}
+
 .formula-header {
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .tense-switch {
@@ -833,24 +837,28 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
+  height: 626px;
 }
 
 .formula-panel {
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 12px;
-  padding: 26px 26px 24px;
+  padding: 28px 26px 26px;
+  display: flex;
+  flex-direction: column;
 }
 
 .formula-panel-head {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .formula-panel h3 {
-  font-size: 20px;
+  font-size: 27px;
+  line-height: 1.25;
   font-weight: 800;
 }
 
@@ -861,6 +869,11 @@ h3 {
   border: 2px solid var(--ink);
   display: inline-block;
   flex-shrink: 0;
+}
+
+.formula-panel .dot-marker {
+  width: 14px;
+  height: 14px;
 }
 
 .dot-marker.aka {
@@ -882,15 +895,15 @@ h3 {
   background: var(--paper);
   border: 2px solid var(--ink);
   border-radius: 8px;
-  padding: 12px 16px;
-  font-size: 20px;
+  padding: 13px 18px;
+  font-size: 24px;
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .formula-equation .math-plus {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 27px;
+  font-weight: 900;
   color: var(--muted);
 }
 
@@ -898,9 +911,9 @@ h3 {
   background: var(--aka);
   color: var(--white);
   border: 2px solid var(--ink);
-  padding: 11px 18px;
+  padding: 11px 22px;
   border-radius: 8px;
-  font-size: 27px;
+  font-size: 32px;
   font-weight: 900;
 }
 
@@ -910,15 +923,22 @@ h3 {
 }
 
 .formula-caption {
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 1.45;
   color: var(--muted);
-  margin-top: 14px;
-  min-height: 50px;
+  margin-top: 16px;
+  min-height: 60px;
+}
+
+.formula-caption strong {
+  white-space: nowrap;
 }
 
 .form-cycle-list {
+  flex: 1;
   display: grid;
-  gap: 12px;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   margin-top: 16px;
 }
 
@@ -926,9 +946,9 @@ h3 {
   --step-count: 3;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 20% 35% 45%;
   align-items: center;
-  min-height: 62px;
+  min-height: 88px;
   padding: 5px;
   background: var(--paper);
   border: 2px solid var(--ink);
@@ -940,14 +960,12 @@ h3 {
 .form-slider {
   position: absolute;
   z-index: 0;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
-  width: calc((100% - 10px) / 3);
-  border-radius: 6px;
+  inset: 5px;
+  width: auto;
+  border-radius: 8px;
   background: var(--aka-soft);
   animation: form-slide-aka 5.4s ease-in-out infinite;
-  will-change: transform, background-color;
+  will-change: clip-path, background-color;
 }
 
 .form-slider-obi {
@@ -962,7 +980,7 @@ h3 {
   position: relative;
   z-index: 1;
   text-align: center;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
   line-height: 1.3;
   white-space: nowrap;
@@ -989,61 +1007,61 @@ h3 {
   top: 50%;
   display: grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border: 2px solid var(--ink);
   border-radius: 50%;
   background: var(--white);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1;
   transform: translate(-50%, -50%);
 }
 
 .form-arrow-one {
-  left: 33.333%;
+  left: 20%;
 }
 
 .form-arrow-two {
-  left: 66.666%;
+  left: 55%;
 }
 
 @keyframes form-slide-aka {
   0%, 23% {
-    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 80% 0 0 round 6px);
     background: var(--paper-deep);
   }
   33%, 56% {
-    transform: translate3d(100%, 0, 0);
+    clip-path: inset(0 45% 0 20% round 6px);
     background: var(--obi);
   }
   66%, 89% {
-    transform: translate3d(200%, 0, 0);
+    clip-path: inset(0 0 0 55% round 6px);
     background: var(--aka-soft);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 80% 0 0 round 6px);
     background: var(--paper-deep);
   }
 }
 
 @keyframes form-slide-genga {
   0%, 23% {
-    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 80% 0 0 round 6px);
     background: var(--paper-deep);
   }
   33%, 56% {
-    transform: translate3d(100%, 0, 0);
+    clip-path: inset(0 45% 0 20% round 6px);
     background: var(--obi);
   }
   66%, 89% {
-    transform: translate3d(200%, 0, 0);
+    clip-path: inset(0 0 0 55% round 6px);
     background: var(--genga-soft);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 80% 0 0 round 6px);
     background: var(--paper-deep);
   }
 }
@@ -1930,16 +1948,56 @@ mark {
 
   .formula-columns {
     grid-template-columns: 1fr;
+    height: auto;
     gap: 18px;
+  }
+
+  .formula-panel {
+    padding: 24px 22px;
+  }
+
+  .formula-panel h3 {
+    font-size: 20px;
   }
 
   .formula-caption {
     min-height: 0;
+    font-size: 16px;
   }
 
   .formula-equation {
     flex-wrap: wrap;
     white-space: normal;
+  }
+
+  .formula-equation > span:first-child {
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+
+  .formula-equation .math-plus {
+    font-size: 20px;
+  }
+
+  .formula-equation strong {
+    font-size: 27px;
+    padding: 10px 16px;
+  }
+
+  .form-cycle-list {
+    flex: none;
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  .form-cycle {
+    min-height: 62px;
+  }
+
+  .form-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
   }
 
   .form-step {
@@ -2252,7 +2310,7 @@ mark {
   }
 
   .form-slider {
-    transform: translate3d(200%, 0, 0);
+    clip-path: inset(0 0 0 55% round 6px);
     background: var(--aka-soft);
   }
 
