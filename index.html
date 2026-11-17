@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ECECF6">
+  <meta name="description" content="Presentasi interaktif bunpou ～のでした, bunpou yang mirip, dan cara membedakannya oleh Faiz Syihab, NIM 125241046, Kelas A.">
+  <title>Bunpou Jawir · ～のでした</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css?v=20261117-1">
+  <script src="app.js?v=20261117-1" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <g id="petal">
+        <path d="M0 0 L-44 -119 Q-48 -156 0 -198 L29 -91 Z" fill="#EFE8FF"/>
+        <path d="M0 0 L0 -198 L48 -147 Q60 -121 29 -91 Z" fill="#9A82D8"/>
+        <path d="M0 0 L-18 -108 L0 -194 L16 -104 Z" fill="#CFC1F4"/>
+      </g>
+      <symbol id="paper-flower" viewBox="0 0 500 500">
+        <g transform="translate(250 250)">
+          <use href="#petal"/>
+          <use href="#petal" transform="rotate(30)"/>
+          <use href="#petal" transform="rotate(60)"/>
+          <use href="#petal" transform="rotate(90)"/>
+          <use href="#petal" transform="rotate(120)"/>
+          <use href="#petal" transform="rotate(150)"/>
+          <use href="#petal" transform="rotate(180)"/>
+          <use href="#petal" transform="rotate(210)"/>
+          <use href="#petal" transform="rotate(240)"/>
+          <use href="#petal" transform="rotate(270)"/>
+          <use href="#petal" transform="rotate(300)"/>
+          <use href="#petal" transform="rotate(330)"/>
+          <circle r="11" fill="#E9DAF9"/>
+          <circle r="4" fill="#6F51B2"/>
+        </g>
+      </symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+      <symbol id="arrow-left" viewBox="0 0 24 24"><path d="M20 12H5m6-6-6 6 6 6"/></symbol>
+      <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#slide-1">Langsung ke slide</a>
+
+  <div class="app">
+    <header class="app-header">
+      <a class="brand" href="#slide-1" aria-label="Bunpou Jawir, kembali ke sampul">
+        <span class="brand-mark" lang="ja">文</span>
+        <span>Bunpou Jawir</span>
+      </a>
+      <div class="header-actions">
+        <button class="pill-toggle" id="furigana-toggle" type="button" aria-pressed="true" title="Tampilkan atau sembunyikan furigana">
+          <span lang="ja">ふりがな</span>
+          <span class="toggle-state" id="furigana-state">Aktif</span>
+        </button>
+        <button class="icon-button" id="fullscreen-button" type="button" aria-label="Masuk layar penuh" title="Layar penuh (F)">
+          <svg><use href="#expand"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="stage" aria-label="Presentasi bunpou ～のでした, 7 slide">
+      <div class="slides">
+        <!-- SLIDE 1: PEMBUKA -->
+        <section class="slide cover active" id="slide-1" aria-labelledby="cover-title" tabindex="-1" data-title="Pembuka">
+          <div class="cover-left">
+            <h1 id="cover-title" class="lines" lang="ja">
+              <span class="line"><span data-line style="--i:0"><span class="tilde">～</span>のでした</span></span>
+            </h1>
+            <p class="cover-subject"><span lang="ja">日本語の文法</span> · Ekspresi Realisasi &amp; Latar Belakang</p>
+            <p class="cover-lead">Bentuk lampau sopan dari <span lang="ja">～のです</span> untuk menyatakan kesadaran baru, ingatan yang muncul, serta penutup narasi yang tenang.</p>
+            <div class="presenter">
+              <strong>Faiz Syihab</strong>
+              <span class="presenter-meta">NIM 125241046</span>
+              <span class="presenter-meta">Kelas A</span>
+            </div>
+          </div>
+          <div class="cover-right">
+            <span class="vertical-type" lang="ja">ことばに、気づきを。</span>
+            <div class="flower-disc" aria-hidden="true">
+              <svg class="paper-flower cover-flower"><use href="#paper-flower"/></svg>
+            </div>
+            <div class="cover-right-footer">
+              <div class="art-caption">
+                <span lang="ja">気づきと語り</span>
+                <span>Kesadaran &amp; narasi</span>
+              </div>
+              <button class="start-button" type="button" data-go="1">
+                <span>Mulai materi</span>
+                <svg><use href="#arrow-right"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="slide-bottom page-only"><span>1 / 7</span></div>
+        </section>
+
+        <!-- SLIDE 2: MAKNA & FUNGSI -->
+        <section class="slide meaning" id="slide-2" aria-labelledby="meaning-title" tabindex="-1" data-title="Makna" hidden inert>
+          <div class="section-heading">
+            <h2 class="section-title" id="meaning-title">Arti, makna &amp; fungsi</h2>
+            <span class="heading-jp" lang="ja" aria-hidden="true">いみ</span>
+          </div>
+          <div class="meaning-layout">
+            <article class="meaning-panel action-panel">
+              <span class="role-chip role-chip-light">Fungsi Utama 1</span>
+              <h3 lang="ja">気づき・納得</h3>
+              <p class="meaning-translation">“Ternyata memang…” / “Oh iya, baru sadar…”</p>
+              <p>Menyatakan fakta, alasan, atau keadaan tersembunyi yang baru saja disadari, dipahami, atau diingat kembali oleh penutur pada momen itu.</p>
+              <div class="panel-note panel-note-dark">
+                <span class="note-label">Penanda umum</span>
+                <p><span lang="ja">実は</span> (sebenarnya), <span lang="ja">よく見ると</span> (setelah diperhatikan), <span lang="ja">そういえば</span> (omong-omong, baru ingat)</p>
+              </div>
+              <div class="type-tag">
+                <span lang="ja">発見・思い出し</span>
+                <span>Penemuan fakta &amp; pengingatan</span>
+              </div>
+            </article>
+
+            <div class="meaning-stack">
+              <article class="meaning-panel identity-panel">
+                <span class="role-chip role-chip-cobalt">Fungsi Utama 2</span>
+                <h3 lang="ja">背景説明・結び</h3>
+                <p class="meaning-translation">“Demikianlah keadaannya…” / “Begitulah kisahnya”</p>
+                <p>Dipakai dalam cerita, laporan, atau esai sopan untuk menjelaskan latar belakang di balik suatu peristiwa sekaligus menutup alur secara reflektif.</p>
+                <div class="type-tag">
+                  <span lang="ja">語り・解説</span>
+                  <span>Penjelasan latar &amp; penutup cerita</span>
+                </div>
+              </article>
+
+              <article class="meaning-synthesis">
+                <span class="synthesis-label">Asal Struktur</span>
+                <p><strong lang="ja">～のだ / ～のです</strong> (menjelaskan alasan) berubah ke bentuk lampau sopan menjadi <strong lang="ja">～のでした</strong>. Fokusnya bukan sekadar melaporkan kejadian, melainkan mengajak pendengar ikut memahami latar atau realisasinya.</p>
+              </article>
+            </div>
+          </div>
+          <div class="slide-bottom page-only"><span>2 / 7</span></div>
+        </section>
+
+        <!-- SLIDE 3: RUMUS PEMBENTUKAN -->
+        <section class="slide formula" id="slide-3" aria-labelledby="formula-title" tabindex="-1" data-title="Rumus" hidden inert>
+          <div class="section-heading formula-header">
+            <h2 class="section-title" id="formula-title">Cara membentuk</h2>
+            <div class="tense-switch" role="group" aria-label="Pilih kala sebelum nodeshita" data-ui>
+              <button class="tense-btn is-active" type="button" data-tense="present" aria-pressed="true">Kini / Fakta</button>
+              <button class="tense-btn" type="button" data-tense="past" aria-pressed="false">Lampau</button>
+            </div>
+          </div>
+
+          <div class="formula-columns">
+            <article class="formula-panel">
+              <div class="formula-panel-head">
+                <span class="dot-marker cobalt" aria-hidden="true"></span>
+                <h3>Kata kerja &amp; kata sifat <span lang="ja">い</span></h3>
+              </div>
+              <div class="formula-equation">
+                <span id="eq-left-v">V普通形 / Adj-<b lang="ja">い</b></span>
+                <span class="math-plus">+</span>
+                <strong lang="ja">のでした</strong>
+              </div>
+              <p class="formula-caption" id="cap-v">Tempelkan langsung pada bentuk biasa tanpa sisipan partikel tambahan.</p>
+              <div class="form-cycle-list" lang="ja" aria-label="Contoh perubahan kata kerja dan kata sifat i">
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider" aria-hidden="true"></span>
+                  <span class="form-step" id="v-step1-base">読む</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="v-step1-mid">読む（辞書）</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-cobalt" id="v-step1-out">読むのでした</span>
+                </div>
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider" aria-hidden="true"></span>
+                  <span class="form-step" id="v-step2-base">行く</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="v-step2-mid">行かない</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-cobalt" id="v-step2-out">行かないのでした</span>
+                </div>
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider" aria-hidden="true"></span>
+                  <span class="form-step" id="v-step3-base">忙しい</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="v-step3-mid">忙しくない</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-cobalt" id="v-step3-out">忙しくないのでした</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="formula-panel">
+              <div class="formula-panel-head">
+                <span class="dot-marker citron" aria-hidden="true"></span>
+                <h3>Kata benda &amp; kata sifat <span lang="ja">な</span></h3>
+              </div>
+              <div class="formula-equation noun-equation">
+                <span id="eq-left-n">N / Adj-<b lang="ja">な</b> + <b lang="ja">な</b></span>
+                <span class="math-plus">+</span>
+                <strong lang="ja">のでした</strong>
+              </div>
+              <p class="formula-caption" id="cap-n">Untuk bentuk kini positif, wajib menyisipkan <strong lang="ja">な</strong> sebelum <strong lang="ja">のでした</strong>.</p>
+              <div class="form-cycle-list" lang="ja" aria-label="Contoh perubahan kata benda dan kata sifat na">
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider form-slider-citron" aria-hidden="true"></span>
+                  <span class="form-step" id="n-step1-base">休日</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="n-step1-mid">休日な</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-citron" id="n-step1-out">休日なのでした</span>
+                </div>
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider form-slider-citron" aria-hidden="true"></span>
+                  <span class="form-step" id="n-step2-base">静か</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="n-step2-mid">静かな</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-citron" id="n-step2-out">静かなのでした</span>
+                </div>
+                <div class="form-cycle form-cycle-three">
+                  <span class="form-slider form-slider-citron" aria-hidden="true"></span>
+                  <span class="form-step" id="n-step3-base">雨</span>
+                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                  <span class="form-step step-mid" id="n-step3-mid">雨じゃない</span>
+                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                  <span class="form-step step-final-citron" id="n-step3-out">雨じゃないのでした</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="slide-bottom">
+            <span>V = kata kerja · Adj = kata sifat · N = kata benda · Gunakan tombol Kini / Lampau di kanan atas</span>
+            <span>3 / 7</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: CONTOH KALIMAT -->
+        <section class="slide examples" id="slide-4" aria-labelledby="examples-title" tabindex="-1" data-title="Contoh" hidden inert>
+          <div class="examples-intro">
+            <h2 class="section-title" id="examples-title">Contoh kalimat</h2>
+            <div class="example-legend">
+              <span><i class="dot-marker cobalt" aria-hidden="true"></i><span>Realisasi / Kesadaran Baru</span></span>
+              <span><i class="dot-marker citron" aria-hidden="true"></i><span>Latar Belakang / Narasi</span></span>
+            </div>
+          </div>
+          <div class="example-grid">
+            <article class="example-card example-action">
+              <p class="jp-sentence" lang="ja">この<ruby>店<rt>みせ</rt></ruby>がいつも<ruby>閉<rt>し</rt></ruby>まっているのは、<ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>が<ruby>定<rt>てい</rt></ruby><ruby>休<rt>きゅう</rt></ruby><ruby>日<rt>び</rt></ruby><mark>なのでした</mark>。</p>
+              <p class="translation">Baru sadar, toko ini selalu tutup ternyata karena hari Rabu adalah hari libur tetapnya.</p>
+            </article>
+            <article class="example-card example-identity">
+              <p class="jp-sentence" lang="ja">こうして、<ruby>二<rt>ふた</rt></ruby><ruby>人<rt>り</rt></ruby>の<ruby>長<rt>なが</rt></ruby>い<ruby>旅<rt>たび</rt></ruby>が<ruby>静<rt>しず</rt></ruby>かに<ruby>始<rt>はじ</rt></ruby>まっ<mark>たのでした</mark>。</p>
+              <p class="translation">Demikianlah, perjalanan panjang mereka berdua pun dimulai dengan tenang.</p>
+            </article>
+            <article class="example-card example-action">
+              <p class="jp-sentence" lang="ja">カバンを<ruby>探<rt>さが</rt></ruby>し<ruby>回<rt>まわ</rt></ruby>っていたら、<ruby>鍵<rt>かぎ</rt></ruby>はポケットに<ruby>入<rt>はい</rt></ruby>っ<mark>ていたのでした</mark>。</p>
+              <p class="translation">Setelah mencari ke mana-mana, ternyata kuncinya ada di dalam saku.</p>
+            </article>
+            <article class="example-card example-identity">
+              <p class="jp-sentence" lang="ja">その<ruby>手<rt>て</rt></ruby><ruby>紙<rt>がみ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで、<ruby>私<rt>わたし</rt></ruby>は<ruby>初<rt>はじ</rt></ruby>めて<ruby>母<rt>はは</rt></ruby>の<ruby>優<rt>やさ</rt></ruby>しさを<ruby>知<rt>し</rt></ruby>っ<mark>たのでした</mark>。</p>
+              <p class="translation">Setelah membaca surat itu, untuk pertama kalinya saya memahami kebaikan hati ibu.</p>
+            </article>
+            <article class="example-card example-action">
+              <p class="jp-sentence" lang="ja">あの<ruby>時<rt>とき</rt></ruby><ruby>彼<rt>かれ</rt></ruby>が<ruby>無<rt>む</rt></ruby><ruby>口<rt>くち</rt></ruby>だったのは、<ruby>体<rt>たい</rt></ruby><ruby>調<rt>ちょう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>く<ruby>不<rt>ふ</rt></ruby><ruby>安<rt>あん</rt></ruby><mark>だったのでした</mark>。</p>
+              <p class="translation">Waktu itu ia pendiam karena ternyata kondisinya kurang sehat dan merasa cemas.</p>
+            </article>
+            <article class="example-card example-identity">
+              <p class="jp-sentence" lang="ja">そういえば、この<ruby>列<rt>れっ</rt></ruby><ruby>車<rt>しゃ</rt></ruby>は<ruby>週<rt>しゅう</rt></ruby><ruby>末<rt>まつ</rt></ruby>だけ<ruby>停<rt>てい</rt></ruby><ruby>車<rt>しゃ</rt></ruby><ruby>駅<rt>えき</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<mark>のでした</mark>。</p>
+              <p class="translation">Omong-omong, baru ingat kalau kereta ini memang lebih sedikit perhentiannya di akhir pekan.</p>
+            </article>
+          </div>
+          <div class="slide-bottom page-only"><span>4 / 7</span></div>
+        </section>
+
+        <!-- SLIDE 5: BUNPOU YANG MIRIP -->
+        <section class="slide similar" id="slide-5" aria-labelledby="similar-title" tabindex="-1" data-title="Bunpou Mirip" hidden inert>
+          <div class="section-heading">
+            <div>
+              <h2 class="section-title" id="similar-title">Bunpou yang mirip</h2>
+              <p class="section-subtitle">Empat pola penjelasan yang berdekatan makna tetapi berbeda fokus penuturnya.</p>
+            </div>
+            <span class="heading-jp" lang="ja" aria-hidden="true">くらべる</span>
+          </div>
+
+          <div class="compare-grid">
+            <article class="compare-card compare-primary">
+              <span class="compare-role">Target Utama</span>
+              <h3 lang="ja">～のでした</h3>
+              <dl class="compare-facts">
+                <dt>Fokus</dt>
+                <dd>Kesadaran baru, pengingatan, atau penutup latar cerita.</dd>
+                <dt>Nuansa</dt>
+                <dd>“Ternyata memang begitu…” / “Demikianlah kisahnya…”</dd>
+                <dt>Ciri khas</dt>
+                <dd>Reflektif; fakta baru disadari atau dituturkan kembali secara sopan.</dd>
+              </dl>
+            </article>
+
+            <article class="compare-card">
+              <span class="compare-role">Penjelasan Kini</span>
+              <h3 lang="ja">～のです / んです</h3>
+              <dl class="compare-facts">
+                <dt>Fokus</dt>
+                <dd>Menjelaskan atau menegaskan alasan situasi saat ini.</dd>
+                <dt>Nuansa</dt>
+                <dd>“Soalnya memang begitu” (interaktif dengan lawan bicara).</dd>
+                <dt>Bedanya</dt>
+                <dd>Berorientasi masa kini dan dialog langsung, bukan kilas balik atau realisasi lampau.</dd>
+              </dl>
+            </article>
+
+            <article class="compare-card compare-tinted">
+              <span class="compare-role">Sebab Langsung</span>
+              <h3 lang="ja">～からだった</h3>
+              <dl class="compare-facts">
+                <dt>Fokus</dt>
+                <dd>Menunjuk penyebab langsung suatu peristiwa lampau.</dd>
+                <dt>Nuansa</dt>
+                <dd>“Hal itu terjadi karena X.”</dd>
+                <dt>Bedanya</dt>
+                <dd>Murni hubungan sebab-akibat objektif tanpa rasa penemuan atau bingkai cerita.</dd>
+              </dl>
+            </article>
+
+            <article class="compare-card">
+              <span class="compare-role">Deduksi Logis</span>
+              <h3 lang="ja">～わけだった</h3>
+              <dl class="compare-facts">
+                <dt>Fokus</dt>
+                <dd>Kesimpulan logis dari premis atau bukti sebelumnya.</dd>
+                <dt>Nuansa</dt>
+                <dd>“Jadi pantas saja…” / “Masuk akal jika…”</dd>
+                <dt>Bedanya</dt>
+                <dd>Hasil penalaran logika pembicara, bukan sekadar latar belakang naratif.</dd>
+              </dl>
+            </article>
+          </div>
+
+          <div class="register-strip">
+            <strong>Catatan ragam &amp; bentuk polos:</strong>
+            <span><b lang="ja">～のだった</b> = bentuk kasual atau tulisan sastra · <b lang="ja">～んでした</b> = ragam lisan santai · <b lang="ja">～ました</b> = melapor fakta polos tanpa makna kesadaran atau latar belakang.</span>
+          </div>
+          <div class="slide-bottom page-only"><span>5 / 7</span></div>
+        </section>
+
+        <!-- SLIDE 6: CARA MEMBEDAKAN (INTERACTIVE DISTINCTION LAB) -->
+        <section class="slide distinguish" id="slide-6" aria-labelledby="distinguish-title" tabindex="-1" data-title="Cara Bedakan" hidden inert>
+          <div class="section-heading distinguish-header">
+            <h2 class="section-title" id="distinguish-title">Cara membedakan</h2>
+            <span class="heading-jp" lang="ja" aria-hidden="true">みわける</span>
+          </div>
+
+          <div class="distinguish-layout">
+            <aside class="decision-column" aria-label="Tiga pertanyaan penentu">
+              <h3 class="decision-title">Uji cepat memilih pola</h3>
+              <ol class="decision-list">
+                <li>
+                  <span class="decision-q">Baru sadar, teringat, atau menutup latar kisah?</span>
+                  <span class="decision-a" lang="ja">→ ～のでした</span>
+                </li>
+                <li>
+                  <span class="decision-q">Menjawab langsung situasi aktif saat berbicara?</span>
+                  <span class="decision-a" lang="ja">→ ～のです</span>
+                </li>
+                <li>
+                  <span class="decision-q">Menunjuk sebab langsung atau deduksi “pantas saja”?</span>
+                  <span class="decision-a" lang="ja">→ ～からだった / ～わけだった</span>
+                </li>
+              </ol>
+            </aside>
+
+            <div class="lab-column" data-ui>
+              <div class="lab-toolbar">
+                <div class="scenario-group" role="group" aria-label="Pilih skenario contoh">
+                  <button class="scenario-btn is-active" type="button" data-scenario="shop" aria-pressed="true">Situasi 1: Toko tutup Rabu</button>
+                  <button class="scenario-btn" type="button" data-scenario="tanaka" aria-pressed="false">Situasi 2: Tanaka pulang cepat</button>
+                </div>
+                <div class="pattern-group" role="group" aria-label="Pilih pola bunpou untuk dibandingkan">
+                  <button class="pattern-btn is-active" type="button" data-pattern="nodeshita" aria-pressed="true" lang="ja">～のでした</button>
+                  <button class="pattern-btn" type="button" data-pattern="nodesu" aria-pressed="false" lang="ja">～のです</button>
+                  <button class="pattern-btn" type="button" data-pattern="karadatta" aria-pressed="false" lang="ja">～からだった</button>
+                  <button class="pattern-btn" type="button" data-pattern="wakedatta" aria-pressed="false" lang="ja">～わけだった</button>
+                </div>
+              </div>
+
+              <div class="lab-stage" id="lab-output" aria-live="polite">
+                <div class="lab-meta">
+                  <span class="lab-badge" id="lab-badge">Realisasi / Kesadaran Baru</span>
+                  <span class="lab-context" id="lab-context">Kamu datang ke toko kue, lalu melihat papan jadwal tutup di kaca.</span>
+                </div>
+                <p class="lab-sentence" id="lab-sentence" lang="ja">この<ruby>店<rt>みせ</rt></ruby>は、<ruby>毎<rt>まい</rt></ruby><ruby>週<rt>しゅう</rt></ruby><ruby>水<rt>すい</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>が<ruby>定<rt>てい</rt></ruby><ruby>休<rt>きゅう</rt></ruby><ruby>日<rt>び</rt></ruby><mark>なのでした</mark>。</p>
+                <p class="lab-translation" id="lab-translation">“Oh, ternyata toko ini memang libur tetap setiap hari Rabu.”</p>
+                <div class="lab-why">
+                  <span class="lab-why-label">Perbedaan efek &amp; kapan tepat dipakai</span>
+                  <p id="lab-why-text">Mengungkapkan momen penutur baru menyadari atau mengingat fakta tersebut. Nadanya reflektif dan tidak kaku seperti analisis sebab-akibat.</p>
+                </div>
+              </div>
+
+              <div class="print-distinction-summary">
+                <p><strong>Ringkasan situasi 1:</strong> <span lang="ja">～のでした</span> (baru sadar faktanya) · <span lang="ja">～のです</span> (menjelaskan ke lawan bicara sekarang) · <span lang="ja">～からだった</span> (sebab objektif) · <span lang="ja">～わけだった</span> (simpulan logis).</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-bottom page-only"><span>6 / 7</span></div>
+        </section>
+
+        <!-- SLIDE 7: PENUTUP -->
+        <section class="slide closing" id="slide-7" aria-labelledby="closing-title" tabindex="-1" data-title="Penutup" hidden inert>
+          <div class="closing-top">
+            <span lang="ja">ことばに、気づきを。</span>
+            <span>Bunpou Jawir</span>
+          </div>
+          <div class="closing-copy">
+            <span class="closing-jp" lang="ja">ありがとうございました。</span>
+            <h2 id="closing-title">Terima<br>kasih<span>.</span></h2>
+            <p>Untuk waktu dan perhatiannya dalam memahami <span lang="ja">～のでした</span>.</p>
+          </div>
+          <svg class="paper-flower closing-flower" aria-hidden="true"><use href="#paper-flower"/></svg>
+          <div class="closing-signature">
+            <strong>Faiz Syihab</strong>
+            <span>NIM 125241046 <span class="signature-divider">/</span> Kelas A</span>
+          </div>
+          <button class="restart-button" type="button" data-go="0">
+            <span>Kembali ke awal</span>
+            <svg><use href="#arrow-left"/></svg>
+          </button>
+          <div class="slide-bottom">
+            <span lang="ja">～のでした &amp; Bunpou Serupa</span>
+            <span>7 / 7</span>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="deck-controls" aria-label="Kontrol presentasi">
+      <div class="keyboard-hint">
+        <span class="key-mini">←</span>
+        <span class="key-mini">→</span>
+        <span>untuk berpindah</span>
+      </div>
+      <button type="button" class="mobile-slide-trigger" id="mobile-slide-trigger" aria-expanded="false" aria-controls="slide-nav-list">
+        <span id="mobile-slide-label">Slide 1 / 7 · Pembuka</span>
+      </button>
+      <nav class="slide-nav" id="slide-nav-list" aria-label="Pilih slide">
+        <button type="button" data-go="0" class="current" aria-current="step" aria-label="Slide 1: Pembuka"><span class="nav-number">1</span><span class="nav-title">Pembuka</span></button>
+        <button type="button" data-go="1" aria-label="Slide 2: Makna"><span class="nav-number">2</span><span class="nav-title">Makna</span></button>
+        <button type="button" data-go="2" aria-label="Slide 3: Rumus"><span class="nav-number">3</span><span class="nav-title">Rumus</span></button>
+        <button type="button" data-go="3" aria-label="Slide 4: Contoh"><span class="nav-number">4</span><span class="nav-title">Contoh</span></button>
+        <button type="button" data-go="4" aria-label="Slide 5: Bunpou Mirip"><span class="nav-number">5</span><span class="nav-title">Mirip</span></button>
+        <button type="button" data-go="5" aria-label="Slide 6: Cara Membedakan"><span class="nav-number">6</span><span class="nav-title">Bedakan</span></button>
+        <button type="button" data-go="6" aria-label="Slide 7: Penutup"><span class="nav-number">7</span><span class="nav-title">Penutup</span></button>
+      </nav>
+      <div class="arrow-controls">
+        <button type="button" class="icon-button previous" aria-label="Slide sebelumnya" disabled><svg><use href="#arrow-left"/></svg></button>
+        <button type="button" class="icon-button next" aria-label="Slide berikutnya"><svg><use href="#arrow-right"/></svg></button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="sr-only" id="slide-announcer" aria-live="polite" aria-atomic="true"></div>
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <noscript>
+    <style>
+      .slide { display: block !important; position: relative !important; transform: none !important; width: 100% !important; height: auto !important; min-height: 700px; margin-bottom: 24px; }
+      .stage, .slides { height: auto !important; aspect-ratio: auto !important; width: 100% !important; overflow: visible !important; }
+      .deck-controls, .start-button, .pill-toggle, .tense-switch, .lab-toolbar { display: none !important; }
+      .print-distinction-summary { display: block !important; }
+      .app { padding: 20px; }
+      .slide[hidden] { display: block !important; }
+    </style>
+    <p class="noscript-note">JavaScript nonaktif. Semua slide ditampilkan berurutan dengan tampilan statis.</p>
+  </noscript>
+</body>
+</html>
