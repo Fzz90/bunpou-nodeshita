@@ -22,3 +22,4 @@ Reading this as: **interactive Japanese grammar manga-editorial slide deck** for
 - **Rumus (`Slide 3`)**: Genga blueprint layout (`V & Adj-い` vs `N & Adj-な`) with live `Kini / Fakta` ↔ `Lampau` switcher and animated 3-step conjugation tracks.
 - **Contoh (`Slide 4`)**: 6 manga story-frame cards with enlarged projection typography, explicit `Realisasi` / `Narasi` corner tags, toggleable `<ruby><rt>` furigana, and color-coded highlights.
 - **Penutup (`Slide 5`)**: Full-bleed Vermilion episode end-card featuring character-free twilight horizon & powerlines, radiating *shūchūsen* burst, and Gold Hanko stamp **`完`**.
+- **Fullscreen Presentation Stage**: Maximizes the 16:9 canvas to fill the browser viewport immediately on open (`calc((100dvh - 118px) * 16 / 9)`, slim `56px` / `58px` chrome) and triggers native OS Fullscreen seamlessly on the user's first trusted interaction gesture (browsers block `requestFullscreen` prior to user activation).

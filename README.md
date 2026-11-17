@@ -22,9 +22,10 @@ Lalu buka `http://127.0.0.1:4173`.
 
 ## Kontrol
 
+- Saat dibuka di browser desktop, dek langsung mengisi area jendela browser dan otomatis masuk mode layar penuh (*fullscreen*) pada klik atau tombol ketuk pertama.
 - `←` / `→`, `PageUp` / `PageDown`, `Space` / `Shift+Space`: berpindah slide.
 - `Home` / `End`: langsung ke slide pertama atau terakhir.
-- `F`: masuk atau keluar mode layar penuh.
+- `F`: masuk atau keluar mode layar penuh kapan saja.
 - Tombol `ふりがな` di header: menyembunyikan atau menampilkan furigana pada kalimat contoh.
 - Ponsel: tombol pilih slide, tombol panah, atau geser horizontal.
 

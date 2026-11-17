@@ -172,7 +172,45 @@
     }, 4000);
   }
 
+  const fullscreenUse = fullscreenButton.querySelector('use');
+  let autoFullscreenPending = Boolean(document.fullscreenEnabled && document.documentElement.requestFullscreen);
+
+  function disarmAutoFullscreen() {
+    autoFullscreenPending = false;
+    document.removeEventListener('click', handleFirstFullscreenGesture, true);
+    document.removeEventListener('keydown', handleFirstFullscreenGesture, true);
+  }
+
+  async function enterFullscreenSilently() {
+    try {
+      if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+      }
+    } catch {
+      // Ignore fullscreen denials when triggered opportunistically on first interaction
+    }
+  }
+
+  function handleFirstFullscreenGesture(event) {
+    if (!autoFullscreenPending || !event.isTrusted) return;
+    if (event.type === 'click') {
+      const clickedToggle = event.target?.closest?.('#fullscreen-button');
+      disarmAutoFullscreen();
+      if (clickedToggle || document.fullscreenElement) return;
+      enterFullscreenSilently();
+      return;
+    }
+    if (event.type === 'keydown') {
+      if (['Escape', 'Tab', 'Shift', 'Control', 'Alt', 'Meta'].includes(event.key) || event.altKey || event.ctrlKey || event.metaKey) return;
+      const pressedF = event.key.toLowerCase() === 'f';
+      disarmAutoFullscreen();
+      if (pressedF || document.fullscreenElement) return;
+      enterFullscreenSilently();
+    }
+  }
+
   async function toggleFullscreen() {
+    disarmAutoFullscreen();
     try {
       if (document.fullscreenElement) await document.exitFullscreen();
       else if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();
@@ -211,11 +249,19 @@
   window.addEventListener('hashchange', () => goToSlide(readHash(), { updateHash: false }));
   new ResizeObserver(fitStage).observe(stage);
 
+  if (autoFullscreenPending) {
+    document.addEventListener('click', handleFirstFullscreenGesture, true);
+    document.addEventListener('keydown', handleFirstFullscreenGesture, true);
+  }
+
   document.addEventListener('fullscreenchange', () => {
-    const label = document.fullscreenElement ? 'Keluar layar penuh' : 'Masuk layar penuh';
+    const active = Boolean(document.fullscreenElement);
+    const label = active ? 'Keluar layar penuh' : 'Masuk layar penuh';
     fullscreenButton.setAttribute('aria-label', label);
     fullscreenButton.title = label + ' (F)';
+    if (fullscreenUse) fullscreenUse.setAttribute('href', active ? '#collapse' : '#expand');
     fitStage();
+    requestAnimationFrame(fitStage);
   });
 
   document.addEventListener('keydown', event => {
