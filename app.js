@@ -155,7 +155,40 @@
 
     if (focus || focusIsInSlide) slides[index].focus({ preventScroll: true });
     if (changed && mobile.matches) window.scrollTo({ top: 0, behavior: 'instant' });
+    if (index === 2) {
+      syncFormulaSliders();
+      requestAnimationFrame(() => syncFormulaSliders());
+    }
     announcer.textContent = 'Slide ' + (index + 1) + ' dari ' + slides.length + ': ' + slides[index].dataset.title;
+  }
+
+  function getSliderStartTime(sliders) {
+    for (const slider of sliders) {
+      for (const anim of slider.getAnimations()) {
+        if (typeof anim.startTime === 'number' && Number.isFinite(anim.startTime)) {
+          return anim.startTime;
+        }
+      }
+    }
+    return null;
+  }
+
+  function syncFormulaSliders(referenceStartTime = null) {
+    const sliders = document.querySelectorAll('#slide-3 .form-slider');
+    if (!sliders.length) return;
+    let sharedStart = typeof referenceStartTime === 'number' && Number.isFinite(referenceStartTime)
+      ? referenceStartTime
+      : getSliderStartTime(document.querySelectorAll('#slide-3 .formula-face:not([inert]) .form-slider'));
+    if (sharedStart === null) {
+      sharedStart = getSliderStartTime(sliders);
+    }
+    if (sharedStart === null) return;
+    sliders.forEach(slider => {
+      slider.getAnimations().forEach(anim => {
+        if (anim.playState === 'paused') anim.play();
+        if (anim.startTime !== sharedStart) anim.startTime = sharedStart;
+      });
+    });
   }
 
   function setFormulaPanel(prefix, group) {
@@ -174,6 +207,7 @@
     if (!data) return;
 
     ['v', 'vn', 'n', 'nn'].forEach(prefix => setFormulaPanel(prefix, data[prefix]));
+    requestAnimationFrame(() => syncFormulaSliders());
 
     tenseButtons.forEach(btn => {
       const active = btn.dataset.tense === tenseKey;
@@ -185,9 +219,13 @@
   function toggleFormulaFlip(targetId, { restoreFocus = false } = {}) {
     const flip = document.getElementById(targetId);
     if (!flip) return;
+    const refStart = getSliderStartTime(
+      flip.querySelectorAll('.formula-face:not([inert]) .form-slider')
+    );
     const isFlipped = flip.classList.toggle('is-flipped');
     const front = flip.querySelector('.formula-face-front');
     const back = flip.querySelector('.formula-face-back');
+    const inner = flip.querySelector('.formula-card-inner');
     if (front) {
       front.inert = isFlipped;
       front.setAttribute('aria-hidden', String(isFlipped));
@@ -195,6 +233,16 @@
     if (back) {
       back.inert = !isFlipped;
       back.setAttribute('aria-hidden', String(!isFlipped));
+    }
+    syncFormulaSliders(refStart);
+    requestAnimationFrame(() => syncFormulaSliders(refStart));
+    if (inner) {
+      const onFlipTransitionEnd = event => {
+        if (event.target !== inner) return;
+        inner.removeEventListener('transitionend', onFlipTransitionEnd);
+        syncFormulaSliders();
+      };
+      inner.addEventListener('transitionend', onFlipTransitionEnd);
     }
     const label = targetId === 'flip-v' ? 'Kata kerja dan kata sifat i' : 'Kata benda dan kata sifat na';
     announcer.textContent = label + ' menampilkan bentuk ' + (isFlipped ? 'negatif.' : 'positif.');
@@ -394,6 +442,12 @@
     slides.forEach((slide, index) => {
       slide.inert = index !== currentSlide;
     });
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && currentSlide === 2) {
+      requestAnimationFrame(() => syncFormulaSliders());
+    }
   });
 
   fitStage();

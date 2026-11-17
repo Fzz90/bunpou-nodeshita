@@ -1017,15 +1017,10 @@ html:fullscreen {
   border-radius: 8px;
   background: var(--aka-soft);
   animation: form-slide-aka 5.4s ease-in-out infinite;
-  will-change: clip-path, background-color;
 }
 
 .form-slider-obi {
   animation-name: form-slide-genga;
-}
-
-.form-cycle:hover .form-slider {
-  animation-play-state: paused;
 }
 
 .form-step {
