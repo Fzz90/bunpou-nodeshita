@@ -798,26 +798,107 @@ html:fullscreen {
   height: 626px;
 }
 
+.formula-flip {
+  perspective: 1600px;
+  height: 100%;
+  min-width: 0;
+}
+
+.formula-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 620ms var(--ease-out);
+}
+
+.formula-flip.is-flipped .formula-card-inner {
+  transform: rotateY(180deg);
+}
+
+.formula-face {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.formula-face-front {
+  transform: rotateY(0deg);
+}
+
+.formula-face-back {
+  transform: rotateY(180deg);
+}
+
+.formula-flip:not(.is-flipped) .formula-face-back,
+.formula-flip.is-flipped .formula-face-front {
+  pointer-events: none;
+}
+
+.formula-flip.is-flipped .formula-face-back {
+  z-index: 2;
+}
+
 .formula-panel {
   background: var(--white);
   border: 3px solid var(--ink);
   border-radius: 12px;
-  padding: 28px 26px 26px;
+  padding: 26px 26px 24px;
   display: flex;
   flex-direction: column;
+}
+
+.formula-panel-neg {
+  background: var(--paper-soft);
 }
 
 .formula-panel-head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   margin-bottom: 18px;
 }
 
+.formula-head-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
 .formula-panel h3 {
-  font-size: 27px;
+  font-size: 24px;
   line-height: 1.25;
   font-weight: 800;
+}
+
+.polarity-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.polarity-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.polarity-btn-back {
+  background: var(--ink);
+  color: var(--obi);
 }
 
 .dot-marker {
@@ -845,7 +926,7 @@ html:fullscreen {
 .formula-equation {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   white-space: nowrap;
 }
 
@@ -853,14 +934,18 @@ html:fullscreen {
   background: var(--paper);
   border: 2px solid var(--ink);
   border-radius: 8px;
-  padding: 13px 18px;
-  font-size: 24px;
+  padding: 12px 16px;
+  font-size: 22px;
   color: var(--ink);
   font-weight: 800;
 }
 
+.formula-panel-neg .formula-equation > span:first-child {
+  background: var(--white);
+}
+
 .formula-equation .math-plus {
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 900;
   color: var(--muted);
 }
@@ -869,9 +954,9 @@ html:fullscreen {
   background: var(--aka);
   color: var(--white);
   border: 2px solid var(--ink);
-  padding: 11px 22px;
+  padding: 10px 20px;
   border-radius: 8px;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
 }
 
@@ -880,11 +965,16 @@ html:fullscreen {
   color: var(--white);
 }
 
+.formula-panel-neg .formula-equation strong {
+  background: var(--ink);
+  color: var(--obi);
+}
+
 .formula-caption {
   font-size: 20px;
   line-height: 1.45;
   color: var(--muted);
-  margin-top: 16px;
+  margin-top: 14px;
   min-height: 60px;
 }
 
@@ -904,7 +994,7 @@ html:fullscreen {
   --step-count: 3;
   position: relative;
   display: grid;
-  grid-template-columns: 20% 35% 45%;
+  grid-template-columns: 18% 35% 47%;
   align-items: center;
   min-height: 88px;
   padding: 5px;
@@ -913,6 +1003,10 @@ html:fullscreen {
   border-radius: 10px;
   overflow: hidden;
   isolation: isolate;
+}
+
+.formula-panel-neg .form-cycle {
+  background: var(--white);
 }
 
 .form-slider {
@@ -938,7 +1032,7 @@ html:fullscreen {
   position: relative;
   z-index: 1;
   text-align: center;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 700;
   line-height: 1.3;
   white-space: nowrap;
@@ -979,47 +1073,47 @@ html:fullscreen {
 }
 
 .form-arrow-one {
-  left: 20%;
+  left: 18%;
 }
 
 .form-arrow-two {
-  left: 55%;
+  left: 53%;
 }
 
 @keyframes form-slide-aka {
   0%, 23% {
-    clip-path: inset(0 80% 0 0 round 6px);
+    clip-path: inset(0 82% 0 0 round 6px);
     background: var(--paper-deep);
   }
   33%, 56% {
-    clip-path: inset(0 45% 0 20% round 6px);
+    clip-path: inset(0 47% 0 18% round 6px);
     background: var(--obi);
   }
   66%, 89% {
-    clip-path: inset(0 0 0 55% round 6px);
+    clip-path: inset(0 0 0 53% round 6px);
     background: var(--aka-soft);
   }
   100% {
-    clip-path: inset(0 80% 0 0 round 6px);
+    clip-path: inset(0 82% 0 0 round 6px);
     background: var(--paper-deep);
   }
 }
 
 @keyframes form-slide-genga {
   0%, 23% {
-    clip-path: inset(0 80% 0 0 round 6px);
+    clip-path: inset(0 82% 0 0 round 6px);
     background: var(--paper-deep);
   }
   33%, 56% {
-    clip-path: inset(0 45% 0 20% round 6px);
+    clip-path: inset(0 47% 0 18% round 6px);
     background: var(--obi);
   }
   66%, 89% {
-    clip-path: inset(0 0 0 55% round 6px);
+    clip-path: inset(0 0 0 53% round 6px);
     background: var(--genga-soft);
   }
   100% {
-    clip-path: inset(0 80% 0 0 round 6px);
+    clip-path: inset(0 82% 0 0 round 6px);
     background: var(--paper-deep);
   }
 }
@@ -1391,9 +1485,16 @@ mark {
   }
 
   .tense-btn:not(.is-active):hover,
-  .scenario-btn:not(.is-active):hover,
-  .pattern-btn:not(.is-active):hover {
+  .polarity-btn:hover {
     background: var(--paper-deep);
+  }
+
+  .polarity-btn-back:hover {
+    background: #2b2b36;
+  }
+
+  .polarity-btn:hover svg {
+    transform: rotate(180deg);
   }
 
   .restart-button:hover {
@@ -1626,12 +1727,26 @@ mark {
     gap: 18px;
   }
 
+  .formula-flip {
+    height: auto;
+  }
+
   .formula-panel {
     padding: 24px 22px;
   }
 
+  .formula-panel-head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .formula-panel h3 {
     font-size: 20px;
+  }
+
+  .polarity-btn {
+    font-size: 14px;
+    padding: 0 12px;
   }
 
   .formula-caption {
@@ -1954,12 +2069,17 @@ mark {
   }
 
   .form-slider {
-    clip-path: inset(0 0 0 55% round 6px);
+    clip-path: inset(0 0 0 53% round 6px);
     background: var(--aka-soft);
   }
 
   .form-slider-obi {
     background: var(--genga-soft);
+  }
+
+  .formula-flip.is-flipped .formula-face-front,
+  .formula-flip:not(.is-flipped) .formula-face-back {
+    visibility: hidden;
   }
 }
 
@@ -2003,7 +2123,21 @@ mark {
   .noscript-note,
   .start-button,
   .restart-button,
-  .tense-switch {
+  .tense-switch,
+  .polarity-btn {
+    display: none !important;
+  }
+
+  .formula-flip {
+    perspective: none !important;
+  }
+
+  .formula-card-inner {
+    transform: none !important;
+  }
+
+  .formula-flip:not(.is-flipped) .formula-face-back,
+  .formula-flip.is-flipped .formula-face-front {
     display: none !important;
   }
 

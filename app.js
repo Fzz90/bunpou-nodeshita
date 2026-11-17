@@ -11,6 +11,7 @@
   const furiganaToggle = document.querySelector('#furigana-toggle');
   const furiganaState = document.querySelector('#furigana-state');
   const tenseButtons = [...document.querySelectorAll('.tense-btn')];
+  const flipButtons = [...document.querySelectorAll('[data-flip-target]')];
   const mobileSlideTrigger = document.querySelector('#mobile-slide-trigger');
   const mobileSlideLabel = document.querySelector('#mobile-slide-label');
   const slideNav = document.querySelector('#slide-nav-list');
@@ -22,28 +23,80 @@
 
   const TENSE_DATA = {
     present: {
-      eqLeftV: 'V普通形 / Adj-<b lang="ja">い</b>',
-      capV: 'Tempelkan langsung pada bentuk biasa tanpa sisipan partikel tambahan.',
-      v1: ['読む', '読む（辞書）', '読むのでした'],
-      v2: ['行く', '行かない', '行かないのでした'],
-      v3: ['忙しい', '忙しくない', '忙しくないのでした'],
-      eqLeftN: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">な</b>',
-      capN: 'Untuk bentuk kini positif, wajib menyisipkan <strong lang="ja">な</strong> sebelum <strong lang="ja">のでした</strong>.',
-      n1: ['休日', '休日な', '休日なのでした'],
-      n2: ['静か', '静かな', '静かなのでした'],
-      n3: ['雨', '雨じゃない', '雨じゃないのでした']
+      v: {
+        eqLeft: 'V普通形 / Adj-<b lang="ja">い</b>',
+        cap: 'Untuk kalimat positif, tempelkan langsung pada bentuk kamus kata kerja atau bentuk dasar kata sifat <strong lang="ja">い</strong>.',
+        steps: [
+          ['読む', '読む（辞書）', '読むのでした'],
+          ['行く', '行く（辞書）', '行くのでした'],
+          ['忙しい', '忙しい（い形）', '忙しいのでした']
+        ]
+      },
+      vn: {
+        eqLeft: 'V<b lang="ja">ない</b>形 / Adj-<b lang="ja">くない</b>',
+        cap: 'Untuk kalimat negatif, ubah dulu kata kerja ke <strong lang="ja">ない</strong> atau kata sifat <strong lang="ja">い</strong> ke <strong lang="ja">くない</strong> sebelum <strong lang="ja">のでした</strong>.',
+        steps: [
+          ['読む', '読まない', '読まないのでした'],
+          ['行く', '行かない', '行かないのでした'],
+          ['忙しい', '忙しくない', '忙しくないのでした']
+        ]
+      },
+      n: {
+        eqLeft: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">な</b>',
+        cap: 'Untuk bentuk kini positif, wajib menyisipkan <strong lang="ja">な</strong> sebelum <strong lang="ja">のでした</strong>.',
+        steps: [
+          ['休日', '休日な', '休日なのでした'],
+          ['静か', '静かな', '静かなのでした'],
+          ['雨', '雨な', '雨なのでした']
+        ]
+      },
+      nn: {
+        eqLeft: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">じゃない</b>',
+        cap: 'Untuk kalimat negatif, pakai <strong lang="ja">じゃない</strong> tanpa menyisipkan <strong lang="ja">な</strong>.',
+        steps: [
+          ['休日', '休日じゃない', '休日じゃないのでした'],
+          ['静か', '静かじゃない', '静かじゃないのでした'],
+          ['雨', '雨じゃない', '雨じゃないのでした']
+        ]
+      }
     },
     past: {
-      eqLeftV: 'V<b lang="ja">た</b>形 / Adj-<b lang="ja">かった</b>',
-      capV: 'Ubah kata kerja ke bentuk lampau (た/なかった) atau kata sifat い ke かった.',
-      v1: ['読む', '読んだ', '読んだのでした'],
-      v2: ['行く', '行かなかった', '行かなかったのでした'],
-      v3: ['忙しい', '忙しかった', '忙しかったのでした'],
-      eqLeftN: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">だった</b>',
-      capN: 'Pada bentuk lampau, <strong lang="ja">な</strong> tidak dipakai; gunakan <strong lang="ja">だった</strong> atau <strong lang="ja">じゃなかった</strong>.',
-      n1: ['休日', '休日だった', '休日だったのでした'],
-      n2: ['静か', '静かだった', '静かだったのでした'],
-      n3: ['雨', '雨じゃなかった', '雨じゃなかったのでした']
+      v: {
+        eqLeft: 'V<b lang="ja">た</b>形 / Adj-<b lang="ja">かった</b>',
+        cap: 'Untuk bentuk lampau positif, ubah kata kerja ke bentuk <strong lang="ja">た</strong> atau kata sifat <strong lang="ja">い</strong> ke <strong lang="ja">かった</strong>.',
+        steps: [
+          ['読む', '読んだ', '読んだのでした'],
+          ['行く', '行った', '行ったのでした'],
+          ['忙しい', '忙しかった', '忙しかったのでした']
+        ]
+      },
+      vn: {
+        eqLeft: 'V<b lang="ja">なかった</b> / Adj-<b lang="ja">くなかった</b>',
+        cap: 'Untuk lampau negatif, ubah ke <strong lang="ja">なかった</strong> atau kata sifat <strong lang="ja">くなかった</strong> sebelum <strong lang="ja">のでした</strong>.',
+        steps: [
+          ['読む', '読まなかった', '読まなかったのでした'],
+          ['行く', '行かなかった', '行かなかったのでした'],
+          ['忙しい', '忙しくなかった', '忙しくなかったのでした']
+        ]
+      },
+      n: {
+        eqLeft: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">だった</b>',
+        cap: 'Pada bentuk lampau positif, <strong lang="ja">な</strong> diganti dengan <strong lang="ja">だった</strong> sebelum <strong lang="ja">のでした</strong>.',
+        steps: [
+          ['休日', '休日だった', '休日だったのでした'],
+          ['静か', '静かだった', '静かだったのでした'],
+          ['雨', '雨だった', '雨だったのでした']
+        ]
+      },
+      nn: {
+        eqLeft: 'N / Adj-<b lang="ja">な</b> + <b lang="ja">じゃなかった</b>',
+        cap: 'Untuk lampau negatif, gunakan <strong lang="ja">じゃなかった</strong> setelah kata benda atau kata sifat <strong lang="ja">な</strong>.',
+        steps: [
+          ['休日', '休日じゃなかった', '休日じゃなかったのでした'],
+          ['静か', '静かじゃなかった', '静かじゃなかったのでした'],
+          ['雨', '雨じゃなかった', '雨じゃなかったのでした']
+        ]
+      }
     }
   };
 
@@ -105,39 +158,50 @@
     announcer.textContent = 'Slide ' + (index + 1) + ' dari ' + slides.length + ': ' + slides[index].dataset.title;
   }
 
+  function setFormulaPanel(prefix, group) {
+    document.querySelector(`#eq-left-${prefix}`).innerHTML = group.eqLeft;
+    document.querySelector(`#cap-${prefix}`).innerHTML = group.cap;
+    group.steps.forEach((step, idx) => {
+      const n = idx + 1;
+      document.querySelector(`#${prefix}-step${n}-base`).textContent = step[0];
+      document.querySelector(`#${prefix}-step${n}-mid`).textContent = step[1];
+      document.querySelector(`#${prefix}-step${n}-out`).textContent = step[2];
+    });
+  }
+
   function applyTense(tenseKey) {
     const data = TENSE_DATA[tenseKey];
     if (!data) return;
 
-    document.querySelector('#eq-left-v').innerHTML = data.eqLeftV;
-    document.querySelector('#cap-v').textContent = data.capV;
-    document.querySelector('#v-step1-base').textContent = data.v1[0];
-    document.querySelector('#v-step1-mid').textContent = data.v1[1];
-    document.querySelector('#v-step1-out').textContent = data.v1[2];
-    document.querySelector('#v-step2-base').textContent = data.v2[0];
-    document.querySelector('#v-step2-mid').textContent = data.v2[1];
-    document.querySelector('#v-step2-out').textContent = data.v2[2];
-    document.querySelector('#v-step3-base').textContent = data.v3[0];
-    document.querySelector('#v-step3-mid').textContent = data.v3[1];
-    document.querySelector('#v-step3-out').textContent = data.v3[2];
-
-    document.querySelector('#eq-left-n').innerHTML = data.eqLeftN;
-    document.querySelector('#cap-n').innerHTML = data.capN;
-    document.querySelector('#n-step1-base').textContent = data.n1[0];
-    document.querySelector('#n-step1-mid').textContent = data.n1[1];
-    document.querySelector('#n-step1-out').textContent = data.n1[2];
-    document.querySelector('#n-step2-base').textContent = data.n2[0];
-    document.querySelector('#n-step2-mid').textContent = data.n2[1];
-    document.querySelector('#n-step2-out').textContent = data.n2[2];
-    document.querySelector('#n-step3-base').textContent = data.n3[0];
-    document.querySelector('#n-step3-mid').textContent = data.n3[1];
-    document.querySelector('#n-step3-out').textContent = data.n3[2];
+    ['v', 'vn', 'n', 'nn'].forEach(prefix => setFormulaPanel(prefix, data[prefix]));
 
     tenseButtons.forEach(btn => {
       const active = btn.dataset.tense === tenseKey;
       btn.classList.toggle('is-active', active);
       btn.setAttribute('aria-pressed', String(active));
     });
+  }
+
+  function toggleFormulaFlip(targetId, { restoreFocus = false } = {}) {
+    const flip = document.getElementById(targetId);
+    if (!flip) return;
+    const isFlipped = flip.classList.toggle('is-flipped');
+    const front = flip.querySelector('.formula-face-front');
+    const back = flip.querySelector('.formula-face-back');
+    if (front) {
+      front.inert = isFlipped;
+      front.setAttribute('aria-hidden', String(isFlipped));
+    }
+    if (back) {
+      back.inert = !isFlipped;
+      back.setAttribute('aria-hidden', String(!isFlipped));
+    }
+    const label = targetId === 'flip-v' ? 'Kata kerja dan kata sifat i' : 'Kata benda dan kata sifat na';
+    announcer.textContent = label + ' menampilkan bentuk ' + (isFlipped ? 'negatif.' : 'positif.');
+    if (restoreFocus) {
+      const nextBtn = (isFlipped ? back : front)?.querySelector('.polarity-btn');
+      nextBtn?.focus({ preventScroll: true });
+    }
   }
 
   function closeMobileNav({ restoreFocus = false } = {}) {
@@ -244,6 +308,10 @@
 
   tenseButtons.forEach(btn => {
     btn.addEventListener('click', () => applyTense(btn.dataset.tense));
+  });
+
+  flipButtons.forEach(btn => {
+    btn.addEventListener('click', event => toggleFormulaFlip(btn.dataset.flipTarget, { restoreFocus: event.detail === 0 }));
   });
 
   window.addEventListener('hashchange', () => goToSlide(readHash(), { updateHash: false }));

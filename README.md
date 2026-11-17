@@ -16,7 +16,7 @@ Lalu buka `http://127.0.0.1:4173`.
 
 1. **Pembuka:** Judul pola `～のでした`, visual panel manga *koma* pemandangan *fumikiri* tanpa karakter, stempel `文`, dan identitas presenter.
 2. **Makna:** Dua fungsi utama (`気づき・納得` dan `背景説明・結び`) dengan balon dialog *fukidashi* dan penanda penggunaan.
-3. **Rumus (`かたち`):** Aturan pembentukan kata kerja, kata sifat `い`, kata sifat `な`, dan kata benda dengan pengalih kala (`Kini / Fakta` ↔ `Lampau`).
+3. **Rumus (`かたち`):** Aturan pembentukan kalimat **Positif** lebih dulu pada tiap panel (`V & Adj-い` dan `N & Adj-な`) beserta tombol balik **Negatif** beranimasi *flip* 3D untuk membandingkan bentuk negatifnya, lengkap dengan pengalih kala (`Kini / Fakta` ↔ `Lampau`).
 4. **Contoh:** Enam contoh kalimat kontekstual berukuran besar lengkap dengan furigana (dapat diaktifkan/nonaktifkan) dan terjemahan bahasa Indonesia.
 5. **Penutup:** Kartu akhir episode bertanda stempel **`完`** dan tombol kembali ke awal.
 

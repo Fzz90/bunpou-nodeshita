@@ -8,8 +8,8 @@
   <title>Bunpou Jawir · ～のでした</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="styles.css?v=20261118-1">
-  <script src="app.js?v=20261118-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261118-4">
+  <script src="app.js?v=20261118-4" defer></script>
 </head>
 <body>
   <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -126,6 +126,7 @@
       <symbol id="arrow-left" viewBox="0 0 24 24"><path d="M20 12H5m6-6-6 6 6 6"/></symbol>
       <symbol id="expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></symbol>
       <symbol id="collapse" viewBox="0 0 24 24"><path d="M4 9h5V4m11 5h-5V4M4 15h5v5m11-5h-5v5"/></symbol>
+      <symbol id="flip-card" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
     </defs>
   </svg>
 
@@ -230,83 +231,193 @@
           </div>
 
           <div class="formula-columns">
-            <article class="formula-panel">
-              <div class="formula-panel-head">
-                <span class="dot-marker aka" aria-hidden="true"></span>
-                <h3>Kata kerja &amp; kata sifat <span lang="ja">い</span></h3>
-              </div>
-              <div class="formula-equation">
-                <span id="eq-left-v">V普通形 / Adj-<b lang="ja">い</b></span>
-                <span class="math-plus">+</span>
-                <strong lang="ja">のでした</strong>
-              </div>
-              <p class="formula-caption" id="cap-v">Tempelkan langsung pada bentuk biasa tanpa sisipan partikel tambahan.</p>
-              <div class="form-cycle-list" lang="ja" aria-label="Contoh perubahan kata kerja dan kata sifat i">
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider" aria-hidden="true"></span>
-                  <span class="form-step" id="v-step1-base">読む</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="v-step1-mid">読む（辞書）</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-aka" id="v-step1-out">読むのでした</span>
-                </div>
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider" aria-hidden="true"></span>
-                  <span class="form-step" id="v-step2-base">行く</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="v-step2-mid">行かない</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-aka" id="v-step2-out">行かないのでした</span>
-                </div>
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider" aria-hidden="true"></span>
-                  <span class="form-step" id="v-step3-base">忙しい</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="v-step3-mid">忙しくない</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-aka" id="v-step3-out">忙しくないのでした</span>
-                </div>
-              </div>
-            </article>
+            <div class="formula-flip" id="flip-v">
+              <div class="formula-card-inner">
+                <article class="formula-panel formula-face formula-face-front" aria-hidden="false">
+                  <div class="formula-panel-head">
+                    <div class="formula-head-label">
+                      <span class="dot-marker aka" aria-hidden="true"></span>
+                      <h3>Positif · Kata kerja &amp; sifat <span lang="ja">い</span></h3>
+                    </div>
+                    <button class="polarity-btn" type="button" data-flip-target="flip-v" aria-expanded="false" aria-label="Balik ke bentuk negatif kata kerja dan kata sifat i">
+                      <span>Negatif</span>
+                      <svg aria-hidden="true"><use href="#flip-card"/></svg>
+                    </button>
+                  </div>
+                  <div class="formula-equation">
+                    <span id="eq-left-v">V普通形 / Adj-<b lang="ja">い</b></span>
+                    <span class="math-plus">+</span>
+                    <strong lang="ja">のでした</strong>
+                  </div>
+                  <p class="formula-caption" id="cap-v">Untuk kalimat positif, tempelkan langsung pada bentuk kamus kata kerja atau bentuk dasar kata sifat <strong lang="ja">い</strong>.</p>
+                  <div class="form-cycle-list" lang="ja" aria-label="Contoh bentuk positif kata kerja dan kata sifat i">
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="v-step1-base">読む</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="v-step1-mid">読む（辞書）</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="v-step1-out">読むのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="v-step2-base">行く</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="v-step2-mid">行く（辞書）</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="v-step2-out">行くのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="v-step3-base">忙しい</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="v-step3-mid">忙しい（い形）</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="v-step3-out">忙しいのでした</span>
+                    </div>
+                  </div>
+                </article>
 
-            <article class="formula-panel">
-              <div class="formula-panel-head">
-                <span class="dot-marker genga" aria-hidden="true"></span>
-                <h3>Kata benda &amp; kata sifat <span lang="ja">な</span></h3>
+                <article class="formula-panel formula-panel-neg formula-face formula-face-back" aria-hidden="true" inert>
+                  <div class="formula-panel-head">
+                    <div class="formula-head-label">
+                      <span class="dot-marker aka" aria-hidden="true"></span>
+                      <h3>Negatif · Kata kerja &amp; sifat <span lang="ja">い</span></h3>
+                    </div>
+                    <button class="polarity-btn polarity-btn-back" type="button" data-flip-target="flip-v" aria-expanded="true" aria-label="Kembali ke bentuk positif kata kerja dan kata sifat i">
+                      <span>Positif</span>
+                      <svg aria-hidden="true"><use href="#flip-card"/></svg>
+                    </button>
+                  </div>
+                  <div class="formula-equation">
+                    <span id="eq-left-vn">V<b lang="ja">ない</b>形 / Adj-<b lang="ja">くない</b></span>
+                    <span class="math-plus">+</span>
+                    <strong lang="ja">のでした</strong>
+                  </div>
+                  <p class="formula-caption" id="cap-vn">Untuk kalimat negatif, ubah dulu kata kerja ke <strong lang="ja">ない</strong> atau kata sifat <strong lang="ja">い</strong> ke <strong lang="ja">くない</strong> sebelum <strong lang="ja">のでした</strong>.</p>
+                  <div class="form-cycle-list" lang="ja" aria-label="Contoh bentuk negatif kata kerja dan kata sifat i">
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="vn-step1-base">読む</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="vn-step1-mid">読まない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="vn-step1-out">読まないのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="vn-step2-base">行く</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="vn-step2-mid">行かない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="vn-step2-out">行かないのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider" aria-hidden="true"></span>
+                      <span class="form-step" id="vn-step3-base">忙しい</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="vn-step3-mid">忙しくない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-aka" id="vn-step3-out">忙しくないのでした</span>
+                    </div>
+                  </div>
+                </article>
               </div>
-              <div class="formula-equation noun-equation">
-                <span id="eq-left-n">N / Adj-<b lang="ja">な</b> + <b lang="ja">な</b></span>
-                <span class="math-plus">+</span>
-                <strong lang="ja">のでした</strong>
+            </div>
+
+            <div class="formula-flip" id="flip-n">
+              <div class="formula-card-inner">
+                <article class="formula-panel formula-face formula-face-front" aria-hidden="false">
+                  <div class="formula-panel-head">
+                    <div class="formula-head-label">
+                      <span class="dot-marker genga" aria-hidden="true"></span>
+                      <h3>Positif · Kata benda &amp; sifat <span lang="ja">な</span></h3>
+                    </div>
+                    <button class="polarity-btn" type="button" data-flip-target="flip-n" aria-expanded="false" aria-label="Balik ke bentuk negatif kata benda dan kata sifat na">
+                      <span>Negatif</span>
+                      <svg aria-hidden="true"><use href="#flip-card"/></svg>
+                    </button>
+                  </div>
+                  <div class="formula-equation noun-equation">
+                    <span id="eq-left-n">N / Adj-<b lang="ja">な</b> + <b lang="ja">な</b></span>
+                    <span class="math-plus">+</span>
+                    <strong lang="ja">のでした</strong>
+                  </div>
+                  <p class="formula-caption" id="cap-n">Untuk bentuk kini positif, wajib menyisipkan <strong lang="ja">な</strong> sebelum <strong lang="ja">のでした</strong>.</p>
+                  <div class="form-cycle-list" lang="ja" aria-label="Contoh bentuk positif kata benda dan kata sifat na">
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="n-step1-base">休日</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="n-step1-mid">休日な</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="n-step1-out">休日なのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="n-step2-base">静か</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="n-step2-mid">静かな</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="n-step2-out">静かなのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="n-step3-base">雨</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="n-step3-mid">雨な</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="n-step3-out">雨なのでした</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="formula-panel formula-panel-neg formula-face formula-face-back" aria-hidden="true" inert>
+                  <div class="formula-panel-head">
+                    <div class="formula-head-label">
+                      <span class="dot-marker genga" aria-hidden="true"></span>
+                      <h3>Negatif · Kata benda &amp; sifat <span lang="ja">な</span></h3>
+                    </div>
+                    <button class="polarity-btn polarity-btn-back" type="button" data-flip-target="flip-n" aria-expanded="true" aria-label="Kembali ke bentuk positif kata benda dan kata sifat na">
+                      <span>Positif</span>
+                      <svg aria-hidden="true"><use href="#flip-card"/></svg>
+                    </button>
+                  </div>
+                  <div class="formula-equation noun-equation">
+                    <span id="eq-left-nn">N / Adj-<b lang="ja">な</b> + <b lang="ja">じゃない</b></span>
+                    <span class="math-plus">+</span>
+                    <strong lang="ja">のでした</strong>
+                  </div>
+                  <p class="formula-caption" id="cap-nn">Untuk kalimat negatif, pakai <strong lang="ja">じゃない</strong> tanpa menyisipkan <strong lang="ja">な</strong>.</p>
+                  <div class="form-cycle-list" lang="ja" aria-label="Contoh bentuk negatif kata benda dan kata sifat na">
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="nn-step1-base">休日</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="nn-step1-mid">休日じゃない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="nn-step1-out">休日じゃないのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="nn-step2-base">静か</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="nn-step2-mid">静かじゃない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="nn-step2-out">静かじゃないのでした</span>
+                    </div>
+                    <div class="form-cycle form-cycle-three">
+                      <span class="form-slider form-slider-obi" aria-hidden="true"></span>
+                      <span class="form-step" id="nn-step3-base">雨</span>
+                      <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
+                      <span class="form-step step-mid" id="nn-step3-mid">雨じゃない</span>
+                      <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
+                      <span class="form-step step-final-genga" id="nn-step3-out">雨じゃないのでした</span>
+                    </div>
+                  </div>
+                </article>
               </div>
-              <p class="formula-caption" id="cap-n">Untuk bentuk kini positif, wajib menyisipkan <strong lang="ja">な</strong> sebelum <strong lang="ja">のでした</strong>.</p>
-              <div class="form-cycle-list" lang="ja" aria-label="Contoh perubahan kata benda dan kata sifat na">
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider form-slider-obi" aria-hidden="true"></span>
-                  <span class="form-step" id="n-step1-base">休日</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="n-step1-mid">休日な</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-genga" id="n-step1-out">休日なのでした</span>
-                </div>
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider form-slider-obi" aria-hidden="true"></span>
-                  <span class="form-step" id="n-step2-base">静か</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="n-step2-mid">静かな</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-genga" id="n-step2-out">静かなのでした</span>
-                </div>
-                <div class="form-cycle form-cycle-three">
-                  <span class="form-slider form-slider-obi" aria-hidden="true"></span>
-                  <span class="form-step" id="n-step3-base">雨</span>
-                  <span class="form-arrow form-arrow-one" aria-hidden="true">→</span>
-                  <span class="form-step step-mid" id="n-step3-mid">雨じゃない</span>
-                  <span class="form-arrow form-arrow-two" aria-hidden="true">→</span>
-                  <span class="form-step step-final-genga" id="n-step3-out">雨じゃないのでした</span>
-                </div>
-              </div>
-            </article>
+            </div>
           </div>
 
           <div class="slide-bottom page-only"><span>3 / 5</span></div>
