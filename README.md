@@ -1,6 +1,6 @@
 # Bunpou Jawir: ～のでした
 
-Presentasi interaktif 7 slide untuk **Faiz Syihab · NIM 125241046 · Kelas A**, membahas pola tata bahasa Jepang **～のでした**, perbandingan dengan bunpou yang mirip, dan cara membedakannya (tanpa slide latihan soal).
+Presentasi interaktif 7 slide bertema **manga & anime (tanpa karakter)** untuk **Faiz Syihab · NIM 125241046 · Kelas A**, membahas pola tata bahasa Jepang **～のでした**, perbandingan dengan bunpou yang mirip, dan cara membedakannya (tanpa slide latihan soal).
 
 ## Cara Membuka
 
@@ -14,13 +14,13 @@ Lalu buka `http://127.0.0.1:4173`.
 
 ## Struktur 7 Slide
 
-1. **Pembuka:** Judul pola `～のでした`, motto, ilustrasi bunga lipat, dan identitas presenter.
-2. **Makna:** Dua fungsi utama (`気づき・納得` dan `背景説明・結び`) serta asal bentuk dari `～のです`.
-3. **Rumus (`かたち`):** Aturan pembentukan kata kerja, kata sifat `い`, kata sifat `な`, dan kata benda dengan pengalih kala (`Bentuk Kini / Fakta` ↔ `Bentuk Lampau`).
+1. **Pembuka:** Judul pola `～のでした`, visual panel manga *koma* pemandangan *fumikiri* tanpa karakter, stempel `文`, dan identitas presenter.
+2. **Makna:** Dua fungsi utama (`気づき・納得` dan `背景説明・結び`) dengan balon dialog *fukidashi* serta asal bentuk dari `～のです`.
+3. **Rumus (`かたち`):** Aturan pembentukan kata kerja, kata sifat `い`, kata sifat `な`, dan kata benda dengan pengalih kala (`Kini / Fakta` ↔ `Lampau`).
 4. **Contoh:** Enam contoh kalimat kontekstual lengkap dengan furigana (dapat diaktifkan/nonaktifkan) dan terjemahan bahasa Indonesia.
-5. **Bunpou Mirip:** Perbandingan terstruktur antara `～のでした`, `～のです / ～んです`, `～からだった / ～ためだった`, dan `～わけだった`, beserta catatan ragam (`～のだった`, `～んでした`, `～ました`).
-6. **Cara Membedakan:** Panduan 3 pertanyaan penentu dan simulator situasi interaktif untuk melihat perubahan nuansa tiap pola secara langsung.
-7. **Penutup:** Ringkasan penutup dan tombol kembali ke awal.
+5. **Bunpou Mirip:** Perbandingan 4 panel gaya *yonkoma* antara `～のでした`, `～のです / ～んです`, `～からだった`, dan `～わけだった`, beserta catatan ragam (`～のだった`, `～んでした`, `～ました`).
+6. **Cara Membedakan:** Panduan 3 pertanyaan penentu dan *Storyboard Cut Simulator* interaktif untuk melihat perubahan nuansa tiap pola secara langsung.
+7. **Penutup:** Kartu akhir episode bertanda stempel **`完`** dan tombol kembali ke awal.
 
 ## Kontrol
 
@@ -28,7 +28,7 @@ Lalu buka `http://127.0.0.1:4173`.
 - `Home` / `End`: langsung ke slide pertama atau terakhir.
 - `F`: masuk atau keluar mode layar penuh.
 - Tombol `ふりがな` di header: menyembunyikan atau menampilkan furigana pada kalimat contoh dan simulator.
-- Ponsel: navigasi bawah atau geser horizontal.
+- Ponsel: tombol pilih slide, tombol panah, atau geser horizontal.
 
 ## GitHub Pages
 
