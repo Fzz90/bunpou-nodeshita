@@ -18,7 +18,7 @@ Reading this as: **interactive Japanese grammar manga-editorial slide deck** for
 
 ## Character-Free Manga & Anime Motifs
 - **Cover (`Pembuka`)**: 2-panel manga *koma* layout with radiating *shūchūsen* focus lines, character-free Japanese railway crossing (*fumikiri*) dusk scenery, `定休日` storefront sign (`ハッ！` SFX), and red Hanko `文` mark.
-- **Makna (`Slide 2`)**: *Fukidashi* speech bubble gloss + `ハッ！` SFX on the Aka-Red realization panel vs crisp White narrative panel and Obi Gold synthesis strip.
+- **Makna (`Slide 2`)**: *Fukidashi* speech bubble gloss + `ハッ！` SFX on the Aka-Red realization panel paired side-by-side with the equal-height White Genga-accented narrative panel.
 - **Rumus (`Slide 3`)**: Genga blueprint layout (`V & Adj-い` vs `N & Adj-な`) with live `Kini / Fakta` ↔ `Lampau` switcher and animated 3-step conjugation tracks.
 - **Contoh (`Slide 4`)**: 6 manga story-frame cards with explicit `Realisasi` / `Narasi` corner tags, toggleable `<ruby><rt>` furigana, and color-coded highlights.
 - **Bunpou Mirip (`Slide 5`)**: Full-height 4-panel *Yonkoma* comparison grid.

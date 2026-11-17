@@ -15,7 +15,7 @@ Lalu buka `http://127.0.0.1:4173`.
 ## Struktur 7 Slide
 
 1. **Pembuka:** Judul pola `～のでした`, visual panel manga *koma* pemandangan *fumikiri* tanpa karakter, stempel `文`, dan identitas presenter.
-2. **Makna:** Dua fungsi utama (`気づき・納得` dan `背景説明・結び`) dengan balon dialog *fukidashi* serta asal bentuk dari `～のです`.
+2. **Makna:** Dua fungsi utama (`気づき・納得` dan `背景説明・結び`) dengan balon dialog *fukidashi* dan penanda penggunaan.
 3. **Rumus (`かたち`):** Aturan pembentukan kata kerja, kata sifat `い`, kata sifat `な`, dan kata benda dengan pengalih kala (`Kini / Fakta` ↔ `Lampau`).
 4. **Contoh:** Enam contoh kalimat kontekstual lengkap dengan furigana (dapat diaktifkan/nonaktifkan) dan terjemahan bahasa Indonesia.
 5. **Bunpou Mirip:** Perbandingan 4 panel gaya *yonkoma* antara `～のでした`, `～のです / ～んです`, `～からだった`, dan `～わけだった`.

@@ -590,13 +590,13 @@ h3 {
 
 .meaning-layout {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   height: 590px;
 }
 
 .meaning-panel {
-  padding: 32px 34px 28px;
+  padding: 36px 36px 32px;
   border-radius: 12px;
   border: 3px solid var(--ink);
   display: flex;
@@ -606,12 +606,6 @@ h3 {
 .action-panel {
   background: var(--aka);
   color: var(--white);
-}
-
-.meaning-stack {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 18px;
 }
 
 .identity-panel {
@@ -624,7 +618,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .role-chip {
@@ -656,7 +650,6 @@ h3 {
 
 .manga-sfx-genga {
   color: var(--genga);
-  font-size: 16px;
 }
 
 .meaning-panel h3 {
@@ -669,8 +662,8 @@ h3 {
 /* Manga speech bubble for realization gloss */
 .speech-bubble {
   position: relative;
-  margin: 14px 0 14px;
-  padding: 12px 18px;
+  margin: 22px 0 20px;
+  padding: 15px 20px;
   background: var(--white);
   color: var(--ink);
   border: 3px solid var(--ink);
@@ -700,14 +693,18 @@ h3 {
 }
 
 .meaning-translation {
+  margin: 22px 0 20px;
+  padding: 15px 20px;
+  background: var(--genga-soft);
+  border: 2px solid var(--genga);
+  border-radius: 12px;
   font-size: 20px;
   font-weight: 800;
-  margin: 10px 0 10px;
   color: var(--genga);
 }
 
 .meaning-panel > p:not(.meaning-translation):not(.speech-bubble) {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
 }
 
@@ -720,8 +717,8 @@ h3 {
 }
 
 .panel-note {
-  margin-top: 18px;
-  padding: 16px 18px;
+  margin-top: auto;
+  padding: 20px 22px;
   border-radius: 10px;
 }
 
@@ -732,70 +729,39 @@ h3 {
 
 .note-label {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--obi);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .panel-note p {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--white);
 }
 
-.type-tag {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  font-size: 14px;
-  margin-top: auto;
-  padding-top: 16px;
-}
-
-.action-panel .type-tag {
-  color: #ffeaea;
-}
-
-.action-panel .type-tag > [lang="ja"] {
-  background: var(--ink);
-  color: var(--obi);
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-weight: 700;
-}
-
 .identity-panel .type-tag {
-  color: var(--muted);
+  margin-top: auto;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 18px 22px;
+  border-radius: 10px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .identity-panel .type-tag > [lang="ja"] {
-  background: var(--genga-soft);
-  color: var(--ink);
-  padding: 5px 10px;
+  background: var(--genga);
+  color: var(--white);
+  padding: 6px 12px;
   border-radius: 6px;
-  font-weight: 700;
-}
-
-.meaning-synthesis {
-  background: var(--obi);
-  color: var(--ink);
-  border: 3px solid var(--ink);
-  border-radius: 12px;
-  padding: 22px 28px;
-}
-
-.synthesis-label {
-  display: block;
-  font-size: 14px;
   font-weight: 800;
-  color: var(--sage-gold);
-  margin-bottom: 6px;
-}
-
-.meaning-synthesis p {
-  font-size: 16px;
-  line-height: 1.55;
+  white-space: nowrap;
 }
 
 /* SLIDE 3: RUMUS */
@@ -1944,6 +1910,20 @@ mark {
 
   .meaning-panel h3 {
     font-size: 34px;
+  }
+
+  .meaning-panel > p:not(.meaning-translation):not(.speech-bubble) {
+    font-size: 16px;
+  }
+
+  .panel-note,
+  .identity-panel .type-tag {
+    margin-top: 20px;
+  }
+
+  .identity-panel .type-tag {
+    flex-wrap: wrap;
+    padding: 14px 16px;
   }
 
   .formula-columns {
